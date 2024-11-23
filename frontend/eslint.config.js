@@ -8,11 +8,7 @@ import boundaries from 'eslint-plugin-boundaries'
 export default tseslint.config(
   { ignores: ['dist'] },
   {
-    extends: [
-      'plugin:boundaries/recommended',
-      js.configs.recommended, 
-      ...tseslint.configs.recommended
-    ],
+    extends: ['plugin:boundaries/recommended', js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
@@ -91,8 +87,7 @@ export default tseslint.config(
             {
               from: ['shared'],
               disallow: ['app', 'pages', 'widgets', 'features', 'entities'],
-              message:
-                'Shared module must not import upper layers (${dependency.type})',
+              message: 'Shared module must not import upper layers (${dependency.type})',
             },
             {
               from: ['entities'],
@@ -113,8 +108,7 @@ export default tseslint.config(
             },
             {
               from: ['features'],
-              message:
-                'Feature must not import upper layers (${dependency.type})',
+              message: 'Feature must not import upper layers (${dependency.type})',
               disallow: ['app', 'pages', 'widgets'],
             },
             {
@@ -131,8 +125,7 @@ export default tseslint.config(
             },
             {
               from: ['widgets'],
-              message:
-                'Feature must not import upper layers (${dependency.type})',
+              message: 'Feature must not import upper layers (${dependency.type})',
               disallow: ['app', 'pages'],
             },
             {
@@ -170,9 +163,9 @@ export default tseslint.config(
     },
     overrides: [
       {
-        files: [ '*test*' ],
-        rules: { '@typescript-eslint/unbound-method': 'off' }
+        files: ['*test*'],
+        rules: { '@typescript-eslint/unbound-method': 'off' },
       },
     ],
-  },
+  }
 )
